@@ -1,10 +1,12 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
     return ( 
         <nav>
             <div className="logo">
-                <h1>Ninja Logo</h1> 
+                <Image src="/logo.png" alt="logo" width={128} height={77}/>
+                {/* image components are important since it automaticaly lazy loading the image, i.e it only loads the image when we need to see it on the page */}
             </div>
             <Link href="/">Home</Link>
             <Link href="/about">About</Link>
