@@ -1,4 +1,5 @@
 import styles from '../../styles/Ninjas.module.css';
+import Link from 'next/link';
 // to fetch data from an API, we use getStaticProps function to fetch data at build time and pass it as props to the component
 
 export const getStaticProps = async () => {
@@ -15,11 +16,10 @@ const Ninjas = ( {ninjas} ) => {
         <div>
             <h1>All Ninjas</h1>
             {ninjas.map( (ninja) => (
-                <div key={ninja.id}>
-                    <a className={styles.single}>
-                        <h3>{ninja.name}</h3>
-                    </a>
-                </div>
+                <Link href= {`/ninjas/${ninja.id}`} key={ninja.id} className={styles.single}>
+                    <h3>{ninja.name}</h3>
+             
+                </Link>
             ))}
         </div>
      );
